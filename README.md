@@ -1,7 +1,7 @@
 # freistaatbayern
 ##Introduction
- This project  shows how can we migrate a project from java 8 with Apache Ant to java 11 with Maven. I have built a project that can run on java 8 and the main build tools is Apache Ant.
- then I convert the code to java 11 Maven
+ This project  shows how can we migrate a project from java 8 with Apache Ant to java 11 with Maven. 
+ I have built a project that can run on java 8 and its main tool is Apache Ant.then I convert the code to java 11 Maven
 
 ##Project structure
  This project contains three projects.
@@ -16,23 +16,24 @@
 
 ## Challanges to convert to java 11 Maven
  1. There is a different between Apache Ant and Maven. Ant is a flexable building tools that contains many targets and can do many things by java custom code
-  Maven depends on convention rather than configuration approach so Maven  has conventions in its building lifecycle also custom tasks are done by custom plugin
+  Maven depends on "convention rather than configuration approach" so Maven  has convention in its building lifecycle also custom tasks are done by custom plugin.
+  So it is perfect for regular building and compilation process but it is somehow harder in case of complex custom process. 
  
  2. The main different between java 8 and java 11 is that java 11 introduces Module packaging . This means packages exist inside Module. 
- Each module should declear the depenancies and which packages and services ,it exposes. java 11 also has put out some standard module out of JDK.
+ Each module should declear depenancies , packages and services it exposes. java 11 also has put out some standard module out of JDK.
  Java 11 puts some restriction over reflection Feature that is used by JAXB , Hibernate and so on.
  
 ## Converting Steps
  ## building Test cases
-   first step we should build test cases that can cover the code so that any unwanted change during the migration will fail the test cases and we can 
-   discover faster.
+   first step we should build test cases to cover most of the code so that any unwanted change during the migration will fail the test cases and we can 
+   discover it faster.
  ## Convert to Maven
-   In this step we need to read the build.xml of Ant and analysis it then writing the corresponding Maven code.
+   In this step we need to read the build.xml of Ant and analysis it then writing the corresponding Maven code to replace the build.xml
  ## Changing Maven script from java 8 to java 11
-   In this script we change the compiler inside the Maven script from java 8 to java 11 and upgrade all the dependances to corresponding java 11 version.
- ## Modulralize packages and plan code into Modules and puts dependencies between them
-  In this script we analysis the code and split it into 4 Modules 
-    1. Models: contains Einwohner pojo object
+   In this step we change the compiler inside the Maven script from java 8 to java 11 and upgrade all the dependances to corresponding java 11 version.
+ ## Modulralize packages  into Modules and puts dependencies between them
+  In this step we analysis the code and split it into 4 Modules 
+    1. Models: contains Einwohner pojo model
 	2. dataaccess: contains Dataaccess service that reads Einwohner Data from Inmemory List
 	3. Businessservice: contains Service that gets Einwohner object by id and print it in JSON format
   Each module contains module-info.java (module descriptor file) that exports the correct packages to public and declear the required module to itself.
