@@ -6,6 +6,7 @@
 
     <groupId>interview.demo.bayern</groupId>
     <artifactId>codejava11Maven</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -20,6 +21,12 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>dataaccess</module>
+        <module>businessservices</module>
+        <module>models</module>
+        <module>client</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

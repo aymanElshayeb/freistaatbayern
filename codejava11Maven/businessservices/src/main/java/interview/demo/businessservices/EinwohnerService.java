@@ -1,8 +1,8 @@
 package interview.demo.businessservices;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import interview.demo.dataacess.EinwohnerDataSource;
 import interview.demo.models.Einwohner;
-
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;

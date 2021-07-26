@@ -1,7 +1,5 @@
 package interview.demo.dataacess;
-
 import interview.demo.models.Einwohner;
-
 import java.util.Arrays;
 import java.util.List;
 
