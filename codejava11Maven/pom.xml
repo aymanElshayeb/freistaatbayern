@@ -22,9 +22,9 @@
         </plugins>
     </build>
     <modules>
+        <module>models</module>
         <module>dataaccess</module>
         <module>businessservices</module>
-        <module>models</module>
         <module>client</module>
     </modules>
     <dependencies>
